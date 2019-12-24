@@ -53,14 +53,13 @@ int main(){
     getChild(root);
     Node* next = root;
     cnt = 1;
-    while(next != nullptr){
-        if(next->lc != nullptr && next->rc != nullptr){
-            next = next->lc->childNum >= next->rc->childNum ? next->rc : next->lc;
-            ++cnt;
-        }
-        else
-            break;
-    }
+
+    //bfs 구현하기
+    //뭐지 이 의문의 뻑뻑함은? 키 딜레이 시간때문인건가
+    cout << "hello " << endl;
+    cout << " 갑자기 빨라진것 같은 느낌?"<<endl;
+
+   
     cout << cnt;
     return 0;
 }
