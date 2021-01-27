@@ -1,19 +1,18 @@
-수 = int(input())
-들어가는차 = {}
-나가는차 = {}
-추월 = 0
+N = int(input())
+car_in = []
+car_out = []
+ans = 0
 
-for ㄱ in range(수):
-    차 = input()
-    들어가는차[차] = ㄱ
+for n in range(N):
+    car = input()
+    car_in.append(car)
 
-for ㄱ in range(수):
-    차 = input()
-    나가는차[차] = ㄱ
+for n in range(N):
+    car = input()
+    car_out.append(car)
 
 
-for ㄱ in 나가는차.keys():
-    if 나가는차[ㄱ] < 들어가는차[ㄱ]:
-        추월+=1
-
-print(추월)
+for n in car_out:
+    if car_out.index(n) < car_in.index(n):
+        ans+=1
+print(ans)
