@@ -1,32 +1,30 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.io.*;
+import java.util.Arrays;
 
 public class Main {
-    static int N;
-    static int ans = 0;
-    static ArrayList<Integer> arr = new ArrayList<Integer>();
 
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        N = Integer.parseInt(br.readLine());
+        int N = Integer.parseInt(br.readLine());
+        long ans = 0;
+        int[] arr = new int[N];
 
         for (int i = 0; i < N; i++) {
-            arr.add(Integer.parseInt(br.readLine()));
+            arr[i] = (Integer.parseInt(br.readLine()));
         }
 
-        Collections.sort(arr);
+        Arrays.sort(arr);
+
+        if (arr[0] != 1) {
+            ans = arr[0] - 1;
+            arr[0] = 1;
+        }
 
         for (int i = 0; i < N - 1; i++) {
-            if (i == 0 && arr.get(i) != 1) {
-                ans = arr.get(i) - 1;
-                arr.set(i, 1);
-            }
-            if (arr.get(i) < arr.get(i + 1)) {
-                ans = ans + (arr.get(i + 1) - arr.get(i) - 1);
-                arr.set(i + 1, 1 + arr.get(i));
+
+            if (arr[i] < arr[i + 1]) {
+                ans = ans + (arr[i + 1] - arr[i] - 1);
+                arr[i + 1] = 1 + arr[i];
             }
         }
 
