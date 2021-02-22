@@ -16,7 +16,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s = "";
+        StringBuffer sb = new StringBuffer();
         int i, j;
 
         strArr[0] = br.readLine();
@@ -42,7 +42,7 @@ public class Main {
             L = arr[i - 1][j];
             U = arr[i][j - 1];
             if (max > L && max > U) {
-                s = Character.toString(strArr[0].charAt(i - 1)) + s;
+                sb = sb.insert(0, Character.toString(strArr[0].charAt(i - 1)));
                 i -= 1;
                 j -= 1;
             } else if (max == L && max > U) {
@@ -55,6 +55,6 @@ public class Main {
         }
 
         System.out.println(arr[len[0]][len[1]]);
-        System.out.print(s);
+        System.out.print(sb.toString());
     }
 }
